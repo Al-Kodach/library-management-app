@@ -1,6 +1,9 @@
+# This handle communication between the user and the computer.
+# lets assume we have a library object created from the class Library
+
 def main():
     while (True):
-        print(f"You're welcome to {libray.name} library")
+        print(f"You're welcome to the {libray.name} library")
 
         choice = '''
         1. Display books
@@ -9,24 +12,31 @@ def main():
         4. Return book'''
         print(choice)
 
-        userChoice = input('Select C to continou or Q to quit')
+        userInput = input('Press C to continue and Q to quit')
 
-        if userChoice == 'C':
-            userInput = input('Enter an option')
-            if userInput == '1':
+        if userInput == 'C':
+            userChoice = int(input('Select an option to continue'))
+            if userChoice == 1:
                 library.name.DisplayBooks()
 
-            elif userInput == '2':
-                library.name.addBook()
+            elif userChoice == 2:
+                book = input('Enter the name of the book you will like to add')
+                library.name.addBook(book)
 
-            elif userInput == '3':
-                library.name.lendBook()
+            elif userChoice == 3:
+                user = input('Enter the name of the user')
+                book = input('Enter the book you want to lend')
+                library.name.lendBook(book, user)
 
-            elif userInput == '4':
-                library.name.returnBook()
+            elif userChoice == '4':
+                book = input('Enter the book you want to return')
+                library.name.returnBook(book)
 
             else:
                 print('Please enter a valid option')
 
-        else:
+        elif userInput == 'Q':
             print(f'Thanks for visiting {library.name}')
+
+        else:
+            print('Please enter a valid option')
