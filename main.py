@@ -41,11 +41,3 @@ class Library():
 
         else:
             print('The book does not exit in the book lending Database')
-
-
-zee =  Library(['dancing cat', 'flying mat'], 'zee')
-print(zee.displayBooks())
-print(zee.addBook('getter'))
-print(zee.displayBooks())
-print(zee.lendDict('getter'))
-print(zee.lendDict('getter'))
